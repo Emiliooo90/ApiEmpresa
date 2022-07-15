@@ -14,19 +14,32 @@
 <body>
     <div class="container mt-5">
         <table class="table">
+            <div class="text-center">
+                <h1>Bienvenido {{empleados.nombre_completo}}</h1>
+            </div>
+            <br>
             <thead>
                 <tr>
                     <th>Rut</th>
                     <th>Nombre</th>
                     <th>Área de trabajo</th>
-                    {% if empleados.curso_maquinaria == True %}
-                    <th>Capacitación maquinaria</th>
+                    {% if empleados.trabajo_en_altura == True %}
+                    <th>Capacitación altura</th>
                     {% endif %}
-                    {% if empleados.curso_grua == True %}
-                    <th>Capacitación grúa</th>
+                    {% if empleados.trabajo_en_caliente == True %}
+                    <th>Capacitación trabajo en caliente</th>
                     {% endif %}
-                    {% if empleados.curso_altura == True %}
-                    <th>Capcitacion altura</th>
+                    {% if empleados.trabajo_herramienta_electrica == True %}
+                    <th>Capacitación herramienta eléctrica</th>
+                    {% endif %}
+                    {% if empleados.trabajo_en_excavaciones %}
+                    <th>Capacitación excavaciones</th>
+                    {% endif %}
+                    {% if empleados.trabajo_espacios_confinados == True %}
+                    <th>Capacitación espacios confinados</th>
+                    {% endif %}
+                    {% if empleados.trabajo_señalero == True %}
+                    <th>Capacitación señalero</th>
                     {% endif %}
                 </tr>
             </thead>
@@ -35,14 +48,23 @@
                     <td>{{empleados.rut}}</td>
                     <td>{{empleados.nombre_completo}}</td>
                     <td>{{empleados.area_de_trabajo}}</td>
-                    {% if empleados.curso_maquinaria == True %}
-                    <td>{{empleados.curso_maquinaria}}</td>
+                    {% if empleados.trabajo_en_altura == True %}
+                    <td>Capacitado</td>
                     {% endif %}
-                    {% if empleados.curso_grua == True %}
-                    <td>{{empleados.curso_grua}}</td>
+                    {% if empleados.trabajo_en_caliente == True %}
+                    <td>Capacitado</td>
                     {% endif %}
-                    {% if empleados.curso_altura == True %}
-                    <td>{{empleados.curso_altura}}</td>
+                    {% if empleados.trabajo_herramienta_electrica == True %}
+                    <td>Capacitado</td>
+                    {% endif %}
+                    {% if empleados.trabajo_en_excavaciones == True %}
+                    <td>Capacitado</td>
+                    {% endif %}
+                    {% if empleados.trabajo_espacios_confinados == True %}
+                    <td>Capacitado</td>
+                    {% endif %}
+                    {% if empleados.trabajo_señalero == True %}
+                    <td>Capacitado</td>
                     {% endif %}
                 </tr>
             </tbody>

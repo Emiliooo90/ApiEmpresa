@@ -15,4 +15,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class EmpleadoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Empleado
-        fields = ['url', 'rut', 'nombre_completo', 'area_de_trabajo', 'curso_maquinaria', 'curso_grua', 'curso_altura']
+        fields = ['url', 'rut', 'nombre_completo', 'area_de_trabajo', 'trabajo_en_altura', 'trabajo_en_caliente', 'trabajo_herramienta_electrica', 'trabajo_en_excavaciones', 'trabajo_espacios_confinados', 'trabajo_señalero']

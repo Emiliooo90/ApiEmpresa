@@ -26,34 +26,14 @@
                 <tr>
                     <th>Rut</th>
                     <th>Nombre</th>
-                    <th>Área de trabajo</th>
-                    <th>Capacitación maquinaria</th>
-                    <th>Capacitación grúa</th>
-                    <th>Capacitación alturas</th>
                 </tr>
             </thead>
             <tbody>
                 {% for i in empleados %}
 
                 <tr>
-                    <td>{{ i.rut }}</td>
-                    <td>{{ i.nombre_completo }}</td>
-                    <td>{{ i.area_de_trabajo }}</td>
-                    {% if i.curso_maquinaria == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
-                    {% endif %}
-                    {% if i.curso_grua == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
-                    {% endif %}
-                    {% if i.curso_altura == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
-                    {% endif %}
+                    <td>{{i.rut}}</td>
+                    <td>{{i.nombre_completo}}</td>
                     <td><a href="{%url 'AppWeb:mostrar_emp' i.rut %}" type="button" class="btn btn-warning">Ver</a></td>
                 </tr>
 
