@@ -1,25 +1,17 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags requeridos -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Api</title>
+    <title>Mostrar</title>
 
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid p-2 bg-primary text-white text-center">
-        <h1>Empleado</h1>
-    </div>
-
     <div class="container mt-5">
         <table class="table">
             <thead>
@@ -27,37 +19,32 @@
                     <th>Rut</th>
                     <th>Nombre</th>
                     <th>Área de trabajo</th>
+                    {% if empleados.curso_maquinaria == True %}
                     <th>Capacitación maquinaria</th>
+                    {% endif %}
+                    {% if empleados.curso_grua == True %}
                     <th>Capacitación grúa</th>
-                    <th>Capacitación alturas</th>
+                    {% endif %}
+                    {% if empleados.curso_altura == True %}
+                    <th>Capcitacion altura</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
-                {% for i in empleados %}
-
                 <tr>
-                    <td>{{ i.rut }}</td>
-                    <td>{{ i.nombre_completo }}</td>
-                    <td>{{ i.area_de_trabajo }}</td>
-                    {% if i.curso_maquinaria == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
+                    <td>{{empleados.rut}}</td>
+                    <td>{{empleados.nombre_completo}}</td>
+                    <td>{{empleados.area_de_trabajo}}</td>
+                    {% if empleados.curso_maquinaria == True %}
+                    <td>{{empleados.curso_maquinaria}}</td>
                     {% endif %}
-                    {% if i.curso_grua == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
+                    {% if empleados.curso_grua == True %}
+                    <td>{{empleados.curso_grua}}</td>
                     {% endif %}
-                    {% if i.curso_altura == True %}
-                    <td>Capacitado</td>
-                    {% else %}
-                    <td>No capacitado</td>
+                    {% if empleados.curso_altura == True %}
+                    <td>{{empleados.curso_altura}}</td>
                     {% endif %}
-                    <td><a href="{%url 'AppWeb:mostrar_emp' i.rut %}" type="button" class="btn btn-warning">Ver</a></td>
                 </tr>
-
-                {% endfor %}
             </tbody>
         </table>
     </div>

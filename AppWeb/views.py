@@ -6,7 +6,7 @@ import requests
 
 def empleados(request):
     #Se obtiene el url de la api que consumiremos
-    response = requests.get("http://127.0.0.1:8000/empleado")
+    response = requests.get("http://emiliosk11.pythonanywhere.com/empleado")
 
 
     #Se convierte la api a formato json
@@ -14,4 +14,11 @@ def empleados(request):
     print(empleados)
 
     return render(request, "empleados.html", {'empleados': empleados})
+    pass
+
+def mostrar_emp(request, rut):
+    url = "http://emiliosk11.pythonanywhere.com/empleado/" + rut
+    response = requests.get(url)
+    empleados = response.json()
+    return render(request, "mostrar_emp.html", {'empleados': empleados})
     pass

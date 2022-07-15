@@ -14,7 +14,8 @@ class Empleado(models.Model):
     curso_grua = models.BooleanField(False)
     curso_altura = models.BooleanField(False)
     qr_code = models.ImageField(blank=True, upload_to='qr_codes')
-    url_empleado = models.CharField(max_length=300, default=" ")
+    imagen_empleado = models.ImageField(blank=True)
+    url_empleado = models.CharField(max_length=300, default="http://emiliosk11.pythonanywhere.com/empleado/rut/?format=json")
 
     def __str__(self):
         return self.nombre_completo
